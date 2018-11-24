@@ -1,6 +1,6 @@
 // const RoonApi
 import RoonApi from 'node-roon-api';
-import RoonApiSettings from 'node-roon-api-settings';
+// import RoonApiSettings from 'node-roon-api-settings';
 import RoonApiStatus from 'node-roon-api-status';
 import RoonApiBrowse from 'node-roon-api-browse';
 import RoonApiTransport from 'node-roon-api-transport';
@@ -23,7 +23,7 @@ class SpotifyExtension {
   setup() {
     const roon = new RoonApi({
       extension_id: 'co.uk.perfect-imperfection.roon',
-      display_name: 'We Want Spotify',
+      display_name: 'Test Roon Extension',
       display_version: '0.0.1',
       publisher: 'Michał Domarus',
       email: 'michal@domar.us',
@@ -32,27 +32,27 @@ class SpotifyExtension {
       core_unpaired: () => { this.core = undefined; },
     });
 
-    const makelayout = null;
+    // const makelayout = null;
 
-    let mySettings = {};
+    // const mySettings = {};
 
-    const svcSettings = new RoonApiSettings(roon, {
-      get_settings(cb) {
-        cb(makelayout(mySettings));
-      },
-      save_settings(req, isdryrun, settings) {
-        const l = makelayout(settings.values);
-        req.send_complete(l.has_error ? 'NotValid' : 'Success', {
-          settings: l,
-        });
+    // const svcSettings = new RoonApiSettings(roon, {
+    //   get_settings(cb) {
+    //     cb(makelayout(mySettings));
+    //   },
+    //   save_settings(req, isdryrun, settings) {
+    //     const l = makelayout(settings.values);
+    //     req.send_complete(l.has_error ? 'NotValid' : 'Success', {
+    //       settings: l,
+    //     });
 
-        if (!isdryrun && !l.has_error) {
-          mySettings = l.values;
-          svcSettings.update_settings(l);
-          roon.save_config('settings', mySettings);
-        }
-      },
-    });
+    //     if (!isdryrun && !l.has_error) {
+    //       mySettings = l.values;
+    //       svcSettings.update_settings(l);
+    //       roon.save_config('settings', mySettings);
+    //     }
+    //   },
+    // });
 
     this.svcStatus = new RoonApiStatus(roon);
 

@@ -1,10 +1,9 @@
 {
-  "name": "test1",
+  "name": "TestRoonExtension",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "babel-node": "nodemon --exec babel-node --ignore config.json -- app.js"
   },
   "keywords": [],
