@@ -1,0 +1,11 @@
+{
+    "roonstate": {
+        "tokens": {
+            "020009b1-ece9-424e-856f-b95b90d666ea": "de0445ad-61b2-4f41-9b9c-1b4b0d801813"
+        },
+        "paired_core_id": "020009b1-ece9-424e-856f-b95b90d666ea"
+    },
+    "settings": {
+        "configValue1": true
+    }
+}
